@@ -1,0 +1,32 @@
+/*
+С консоли считываем имя файла.
+Считаем в файле количество символов ',', количество выводим на консоль.
+Закрываем потоки.
+*/
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/* 
+Подсчет запятых
+*/
+
+public class Solution {
+    public static void main(String[] args) throws Exception {
+        BufferedReader buffer = new BufferedReader(new InputStreamReader
+        (System.in));
+        String ar = buffer.readLine();
+        
+        int count = 0;
+        FileInputStream file = new FileInputStream(ar);
+        while(file.available()>0){
+        int g = file.read();    
+            if(g==44) count++;
+        }
+        System.out.println(count);
+        
+        file.close();  
+    }
+}
